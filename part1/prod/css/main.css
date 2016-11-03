@@ -1,0 +1,125 @@
+body {
+    font-family: Tahoma, Arial;
+    margin: 0 auto;
+    width: 1200px;
+    font-size: 18px;
+}
+
+label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+button {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 30px auto;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.tests-container {
+    margin-top: 100px;
+    width: 50%;
+}
+
+.tests-title {
+    margin: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.question-title {
+    margin: 10px;
+    font-weight: bold;
+}
+
+.answer-variant {
+    margin: 5px 0 5px 30px;
+}
+
+.check-default + label::before {
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    margin-right: 3px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    content: '';
+}
+
+.check-default:checked + label::after {
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 4px;
+    height: 8px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    margin-right: 3px;
+    transform: rotate(35deg);
+    content: '';
+}
+
+.check-correct + label::before,
+.wrong + label::before {
+    display: none;
+}
+
+.check-correct + label::after {
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 4px;
+    height: 8px;
+    border-right: 2px solid #30901D;
+    border-bottom: 2px solid #30901D;
+    margin-right: 3px;
+    transform: rotate(35deg);
+    content: '';
+}
+
+.check-wrong + label::after {
+    position: absolute;
+    top: 10px;
+    left: 2px;
+    width: 11px;
+    height: 2px;
+    background: #D11A1A;
+    margin-right: 3px;
+    content: '';
+}
+.results-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .6);
+}
+.results-container {
+    position: relative;
+    top: 30%;
+    left: 35%;
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.result-number {
+    color: #3B8113;
+    font-size: 20px;
+}

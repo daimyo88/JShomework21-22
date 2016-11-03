@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Template</title>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/tests.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+  <div class="tests-container" id="tests-wrapper"></div>
+
+  <div class="results-overlay">
+    <div class="results-container">
+      <div class="result-text">
+        <span>Вы набрали</span>
+        <span class="result-number" id="modal-correct-answers"></span>
+        <span>баллов из</span>
+        <span class="result-number" id="modal-total-answers"></span>
+      </div>
+      <button id="result-btn">Ок!</button>
+    </div>
+  </div>
+
+  <script type="text/html" id="testsTemplate">
+    <h1 class="tests-title">Тесты по JavaScript.</h1>
+      <form>
+        <% for (var i = 0; i < data.length; i++ ) { %>
+          <div class="question-container">
+            <div class="question-title">
+                <span><%= i+1 %>.</span>
+                <span><%= data[i].testQuestion %></span>
+            </div>
+            <% for (var j = 0; j < data[i].labelId.length; j++ ) { %>
+              <div class="answer-variant">
+                <input class="check-default" type="radio" name=<%= data[i].labelName %> id=<%= data[i].labelId[j] %> hidden>
+                <label for=<%= data[i].labelId[j] %>><%= data[i].answerOption[j] %></label>
+              </div>
+            <% }; %>
+          </div>
+        <% }; %>
+        <button id="check-btn" class="test-active">Проверить результаты</button>
+      </form>
+  </script>
+</body>
+</html>
